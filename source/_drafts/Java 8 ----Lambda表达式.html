@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Java 8 ----Lambda表达式</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Java 8函数式编程–––Lambda表达式</h1>
+
+<h2 id="toc_1">1. 介绍</h2>
+
+<h3 id="toc_2">1.1 匿名内部类</h3>
+
+<p>设计匿名内部类的目的，是为了方便开发者将代码作为数据传递。举个栗子，在Android中，为一个按钮设置一个点击事件的监听器：</p>
+
+<div><pre><code class="language-java">button.setOnClickListener(new View.OnClickListener() {
+     public void onClick(View view) {
+          Log.v(TAG, &quot;button is clicked!&quot;);
+     }
+});</code></pre></div>
+
+<h3 id="toc_3">1.2 Lambda表达式</h3>
+
+<p>Lambda表达式的作用和匿名内部类相似，也是为了将代码作为数据来传递，从某种意义上讲，Lambda表达式也可以理解为匿名函数，在其他的一些语言中则把称为闭包，实际上意义都差不多的。上面的例子，用Lambda表达式来改写，可以表示为：</p>
+
+<div><pre><code class="language-java">button.setOnClickListener(view -&gt; Log.v(TAG, &quot;button is clicked!&quot;));</code></pre></div>
+
+<p>和使用匿名内部类传入实现了某个接口的对象不同，Lambda传入的参数是一段代码快，即匿名函数(注意这里已经不在叫方法而叫函数了)。这个匿名函数中，-&gt;将参数和Lambda表达式的主体分开，view是函数的参数，Log.v(TAG, &quot;button is clicked!&quot;)是这个函数的具体实现。</p>
+
+<p><img src="../image/lambda.png" alt="lambda表达式形式"></p>
+
+<p>lambda表达式语法：</p>
+
+<div><pre><code class="language-java">(parameters) -&gt; expression</code></pre></div>
+
+<p>或者</p>
+
+<div><pre><code class="language-java">(parameters) -&gt; {statemens;}</code></pre></div>
+
+<p>Lambda表达式中，参数的类型不需要显式指明，因为javac会根据程序的上下文来推断出参数的类型，这一点和kotlin很相似。</p>
+
+<p>几个Lambda表达式的例子：</p>
+
+<p>1、没有参数</p>
+
+<div><pre><code class="language-java">Runnable runnable = () -&gt; Log.v(TAG, &quot;run&quot;);</code></pre></div>
+
+<p>2、一个参数</p>
+
+<div><pre><code class="language-java">View.OnClickListener listener = view -&gt; Log.v(TAG, &quot;onClick&quot;);</code></pre></div>
+
+<p>3、一个参数包含代码块</p>
+
+<div><pre><code class="language-java">Runnable runnable = () -&gt; {
+     Log.v(TAG, &quot;run first step&quot;);
+     Log.v(TAG, &quot;run second step&quot;);   
+}</code></pre></div>
+
+<p>4、多个参数,不指定参数类型</p>
+
+<div><pre><code class="language-java">Callback&lt;String&gt; callback = (arg1, arg2) -&gt; arg1 + arg2;</code></pre></div>
+
+<p>5、多个参数指定类型</p>
+
+<div><pre><code class="language-java">Callback&lt;String&gt; callback = (String str1, String str2) -&gt; str1 + str2;</code></pre></div>
+
+<p>Lambda表达式的参数类型虽然可以由编译器推断出来, 但是在某些情况下, 也可能会推断不出来, 这时候就需要显式声明参数的类型了.</p>
+
+<h3 id="toc_4">1.3 引用值而非变量</h3>
+
+<p>在匿名内部类中，如果需要引用外部的局部变量，则必须将这个变量设置成final类型，比如</p>
+
+<div><pre><code class="language-java">final String name = getUserName();
+button.setOnClickListener(new View.OnClickListener() {
+     public void onClick() {
+          Toast.make(context, &quot;hi, &quot; + name, Toast.LENGTH_LONG).show();
+     }
+});</code></pre></div>
+
+<p>为什么匿名内部类访问局部变量必须是final类型的呢？简单来说，是为了保证数值的一致性。局部变量和匿名内部类的生命周期是不一样的，如果匿名内部类直接使用局部变量的引用并修改其值，则有可能造成内外值不一致的情况，所以Java规定了匿名内部类只能引用final类型的局部变量，这样一来，值不会被真正改变，匿名内部类中，也就保证了值的一致性。</p>
+
+<p>在Java 8中，放松了这一限制，可以引用非final类型的变量，然而，该变量在既成事实上也必须是final类型的。</p>
+
+<p>在Lambda表达式中，实际上也只能使用final类型的局部变量，即便不加final关键字，这个变量也还是final类型的。如果试图给Lambda表达式中使用一个非final类型的变量，编译器将会报错。</p>
+
+<div><pre><code class="language-java">//这段代码不能通过编译
+String name = getFirstName();
+name = &quot;Mr. &quot; + name;
+button.setOnClickListener(view -&gt; Toast.make(context, &quot;Hi, &quot; + name, Toast.LENGTH_LONG).show());</code></pre></div>
+
+<h2 id="toc_5">2 Lambda表达式的应用</h2>
+
+<h3 id="toc_6">2.1 函数式接口</h3>
+
+<p><strong>函数接口（Functional Interface）</strong>是只有一个抽象方法的接口。例如：</p>
+
+<div><pre><code class="language-java">public interface Comparator&lt;T&gt; {
+    int compare(T o1, T o2);
+}</code></pre></div>
+
+<p>及</p>
+
+<div><pre><code class="language-java">public interface Runnable {
+    void run();
+}</code></pre></div>
+
+<p><em>注意：Java 8中，接口可以有默认方法，即便一个接口定义了多个默认方法，只要它的抽象方法只有一个，它仍然是一个函数式接口。</em></p>
+
+<p>Lambda表达式与函数式接口有什么关系呢？引用书中的一句话：</p>
+
+<blockquote>
+<p>Lambda表达式允许你直接以内联的形式为函数式接口的抽象方法提供实现，并把整个表达式作为函数式接口的实例（具体来说，是函数式接口一个具体实现的实例）。</p>
+</blockquote>
+
+<p>通俗一点来讲，Lambda表达式为函数式接口提供了具体的实现，从而来实现Java方法的传递（或者说是代码块传递）。当然，匿名内部类也可以实现同样的功能，只不过使用匿名内部类使用起来非常笨拙。</p>
+
+<p>@FunctionalInterface注解用于表示一个接口被设计为了函数式接口。如果自定义的接口加了这个注解，但确不是函数式接口，IDE会在编译时报错，“Multiple non-overriding abstract methods found in interface Foo”，意思是Foo这个接口中有多个抽象方法。</p>
+
+<p>对于函数式接口的设计，@FunctionalInterface并非是必须的，但是加上它是一个好习惯。</p>
+
+<h3 id="toc_7">2.2 函数描述符</h3>
+
+<p>函数式接口中抽象方法的签名基本上也就是Lambda表达式的签名，我们把这种抽象方法叫做函数描述符。</p>
+
+<p>比如Runnable接口可以看作是一个什么也不接收，什么也不返回的方法的签名，它的run()方法不接收任何参数，最终返回void.</p>
+
+<p>Lambda和函数式接口的方法签名的一种记法：</p>
+
+<div><pre><code class="language-java">() -&gt; void</code></pre></div>
+
+<p>这里表示的是Runnable接口所代表的方法。</p>
+
+<p>到此为止，关于Lambda表达式，我们需要记住的是：</p>
+
+<p><strong>1. Lambda表达式可以赋值给一个变量；</strong></br>
+<strong>2. Lambda表达式可以传递给一个接收函数式接口的方法。</strong></p>
+
+<p><strong>例子：</strong>
+Lambda表达式的有效使用方式：</p>
+
+<p>(1) Lambda表达式传给一个接收函数式接口的方法</p>
+
+<div><pre><code class="language-java">execute(() -&gt; {});
+
+public void execute(Runnable r){
+    r.run(); 
+}</code></pre></div>
+
+<p>这里的Lambda表达式的签名是<code>() -&gt; void</code>，这是Runnable接口所代表的方法。</p>
+
+<p>(2) Lambda表达式作为返回值</p>
+
+<div><pre><code class="language-java">public Callable&lt;String&gt; fetch() {
+    return () -&gt; &quot;Tricky example ;-)&quot;;
+}
+
+interface Callable&lt;T&gt; {
+    T call();
+}</code></pre></div>
+
+<p>fetch()方法返回一个Callable<String>对象，Callable<String>所代表的方法是<code>() -&gt; String</code>，这和例中所用的签名是一致的。</p>
+
+<p>(3) 一种错误的用法</p>
+
+<div><pre><code class="language-java">Predicate&lt;Apple&gt; p = (Apple a) -&gt; a.getWeight();
+
+interface Predicate&lt;T&gt; {
+    boolean test(T t);
+}</code></pre></div>
+
+<p>例中Lambda表达式的签名是<code>(Apple) -&gt; Double</code>，Predicate<Apple>所代表的方法是<code>(Apple) -&gt; boolean</code>，不一致。</p>
+
+<h3 id="toc_8">2.3 函数式接口的使用</h3>
+
+<p>上面介绍了函数式接口和函数描述符的概念，为了应用不同的Lambda表达式，就需要一套能够描述常见函数描述符的函数式接口。Java 8的java.util.function包中为我们引入了很多函数式接口。几个典型的函数式接口如下：</p>
+
+<h4 id="toc_9">2.3.1 Predicate</h4>
+
+<div><pre><code class="language-java">@FunctionalInterface
+public interface Predicate&lt;T&gt;{
+    boolean test(T t);
+    ...
+}
+</code></pre></div>
+
+<p>涉及到返回值是boolean类型的表达式时，可以用Predicate<T>，例如：</p>
+
+<div><pre><code class="language-java">Predicate&lt;String&gt; p = (s) -&gt; !s.isTempty();</code></pre></div>
+
+<h4 id="toc_10">2.3.2 Consumer</h4>
+
+<div><pre><code class="language-java">@FunctionalInterface
+public interface Consumer&lt;T&gt;{
+    void accept(T t);
+    ...
+}</code></pre></div>
+
+<p>需要对一个对象进行访问可以用Consumer<T>，例如：</p>
+
+<div><pre><code class="language-java">//定义一个forEach方法
+public void &lt;T&gt; forEach(List&lt;T&gt; list, Consumer&lt;T&gt; consumer) {
+    for (Integer i : list) {
+        consumer.consume(i);
+    }
+}
+
+//使用
+forEach(Arrays.asList(1,2,3,4,5), (Integer i) -&gt; System.out.print(i));</code></pre></div>
+
+<p>2.3.3 Function</p>
+
+<div><pre><code class="language-java">@FunctionalInterface
+public interface Function&lt;T, R&gt;{
+    R apply(T t);
+    ...
+}</code></pre></div>
+
+<p>创建映射关系或者从一个对象中提取信息可以用Function<T, R>。</p>
+
+<h2 id="toc_11">3 类型检查与类型推断</h2>
+
+<p>上面提到，Lambda表达式为函数式接口提供了实现，但是Lambda表达式本身并不包含实现了哪个函数式接口的任何信息，所以需要了解Lambda表达式的实际类型。</p>
+
+<h3 id="toc_12">3.1 类型检查</h3>
+
+<p>Lambda表达式需要的类型称为<strong>目标类型</strong>。只要函数签名一致，Lambda表达式可以与很多函数式接口相关联。</p>
+
+<p>一张图说明类型检查的过程：</p>
+
+<div><pre><code class="language-java">List&lt;Apple&gt; heavierThan150g = filter(inventory, (Apple a) -&gt; a.getWeight() &gt; 150);</code></pre></div>
+
+<p><img src="../image/type_check.png" alt="type check"></p>
+
+<h3 id="toc_13">3.2 类型推断</h3>
+
+<p>类型推断是Java 7引入的概念，&lt;&gt;操作符可使编译器在编译时根据上下文推断出参数类型。</p>
+
+<div><pre><code class="language-java">HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();</code></pre></div>
+
+<p>这里，声明map时，已经明确指定了范型的类型，所以在new出HashMap对象时，编译器已经知道HashMap的具体范型。</p>
+
+<p>Java 8中，Lambda表达式可以省略所有参数的类型。因为函数描述符可以通过目标类型来得到，所以Java编译器就可以通过上下文信息来推断出正确的参数类型，从而确定使用什么函数式接口来配合Lambda表达式。</p>
+
+<p>当然，Lambda表达式也可以不省略参数类型，显式指定。至于这两种方式哪一种更好呢，则取决于不同的场景，有时候省略参数类型代码更易读，有的时候显式指明参数类型则比较好。</p>
+
+<h2 id="toc_14">4 方法引用</h2>
+
+<h3 id="toc_15">4.1 方法引用简介</h3>
+
+<p>既然Lambda表达式可以与函数式接口相关联，作为函数式接口的函数描述符的引用，那么一个对象的方法有没有类似的表示方法呢？答案是有的，Java 8提供了方法引用(Method Referen)的表示方法。（在C语言或者是其他一些编程语言中，也有类似的概念，比如，C语言中的指向函数的指针，Python中把一个函数赋值给变量）</p>
+
+<p>方法引用可以重复使用现有的方法定义，并像Lambda表达式一样传递它们。</p>
+
+<p>方法引用通过一个::来表示，需要使用方法引用时，目标引用放在分隔符::前，方法名放在后面。</p>
+
+<p>一些例子：</p>
+
+<table>
+<thead>
+<tr>
+<th>Lambda</th>
+<th>方法引用</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>() -&gt; Thread.currentThread().dumpStack()</td>
+<td>Thread.currentThread()::dumpStack</td>
+</tr>
+<tr>
+<td>(str, i) -&gt; str.substring(i)</td>
+<td>String::substring</td>
+</tr>
+<tr>
+<td>(String s) -&gt; System.out.print(s)</td>
+<td>System.out::print</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_16">4.2 构建方法引用</h3>
+
+<h4 id="toc_17">4.2.1 方法引用主要分为3类：</h4>
+
+<ol>
+<li><p>指向静态方法引用</p>
+
+<p>例如Integer.parseInt()方法，写作Integer::parseInt</p></li>
+<li><p>指向任意类型方法实例的方法引用</p>
+
+<p>如String中的length方法，写作String::length</p></li>
+<li><p>指向已有对象的实例方法的方法引用</p>
+
+<p>比如有一个Student的实例stu，有一个方法是getName，就可以写成stu::getName</p></li>
+</ol>
+
+<p><strong>区别：</strong></p>
+
+<p>静态方法引用是直接引用类的静态方法，通过 &quot;类名::方法名&quot;的方式引用；</p>
+
+<p>第二种方法引用中，引用了一个对象的方法，但是这个对象本身是Lambda表达式的一个参数，不如上面的例子中，对应的Lambda表达式是(String s) -&gt; s.length()；</p>
+
+<p>第三种中，是在Lambda表达式中调用一个已经存在的对象的方法，上面的例子改写成Lambda表达式就是() -&gt; stu.getName()，和第二种的区别就是调用的对象的方法不是Lambda的参数。</p>
+
+<h4 id="toc_18">4.1.2 构造方法引用</h4>
+
+<p>对于一个现有的构造方法，可以利用它的名称和关键字new来创建一个方法引用：ClassName::new.</p>
+
+<p>它的功能和静态方法的引用类似，比如有一个无参构造方法，适合Supplier的签名，() -&gt; Apple，那么可以这样写：</p>
+
+<div><pre><code class="language-Java">Supplier&lt;Apple&gt; constuctor = Apple::new;
+Apple apple = constructor.get();</code></pre></div>
+
+<p>它等价于Lambda表达式的写法：</p>
+
+<div><pre><code class="language-Java">Supplier&lt;Apple&gt; constuctor = () -&gt; new Apple();
+Apple apple = constructor.get();</code></pre></div>
+
+<h2 id="toc_19">5 实践</h2>
+
+<p>有一些菜品，存在<code>List&lt;Dish&gt; dishes</code>中，现在要将它们按照价格升序排序。</p>
+
+<ol>
+<li><p>在Java 8之前</p>
+
+<p>Java 8之前，List没有sort方法，需要借助Collection类。</p>
+
+<div><pre><code class="language-Java">public class DishComparator implements Comparator&lt;Dish&gt; {
+    public int compare(Dish d1, Dish d2) {
+        return d1.getPrice() - d2.getPrice();
+    }
+}
+Collection.sort(list, new DishComparator());</code></pre></div></li>
+<li><p>Java 8中，使用来排序list</p>
+
+<p>Java 8之前，List没有sort方法，需要借助Collection类。</p>
+
+<div><pre><code class="language-Java">public class DishComparator implements Comparator&lt;Dish&gt; {
+    public int compare(Dish d1, Dish d2) {
+        return d1.getPrice() - d2.getPrice();
+    }
+}
+list.sort(new DishComparator());</code></pre></div></li>
+<li><p>使用匿名内部类</p>
+
+<div><pre><code class="language-Java">list.sort(new Comparator&lt;Dish&gt; {
+    public int compare(Dish d1, Dish d2) {
+        return d1.getPrice() - d2.getPrice();
+    }
+});</code></pre></div></li>
+<li><p>使用Lambda表达式</p>
+
+<div><pre><code class="language-Java">list.sort((Dish d1, Dish d2) -&gt; d1.getPrice() - d2.getPrice());</code></pre></div></li>
+<li><p>使用方法引用</p>
+
+<div><pre><code class="language-Java">list.sort(Comparator.comparating(Dish::getPrice))</code></pre></div></li>
+</ol>
+
+<h2 id="toc_20">6 小结</h2>
+
+<ul>
+<li><strong>Lambda表达式</strong>可以理解为一种匿名函数：没有名称，但有参数列表、函数主体、返回值；</li>
+<li>Lambda表达式可以让你更简洁的传递代码；</li>
+<li><strong>函数式接口</strong>就是仅仅声明了一个抽象方法的接口；</li>
+<li>只有在接收函数式接口的地方才可以使用Lambda表达式；</li>
+<li>Lambda表达式允许你直接内联，为函数式接口的抽象方法提供实现，并且将整个表达式作为函数式接口的的一个实例；</li>
+<li>Java 8自带一些常用的函数式接口，在java.util.function包里，包括Predicate<T>、Function<T,R>、Supplier<T>、Consumer<T>等；</li>
+<li>Lambda表达式所需要的代表的类型成为目标类型；</li>
+<li>方法引用让你重复使用现有的方法实现并直接传递它们；</li>
+<li>Comparator、Predicate、和Function等函数式接口有几个可以结合Lambda表达式的默认方法。</li>
+</ul>
+
+<h2 id="toc_21"></h2>
+
+<p>作者：Ivan J. Lee</br>
+时间：2017-11-28 00:40</p>
+
+
+
+
+</body>
+
+</html>
