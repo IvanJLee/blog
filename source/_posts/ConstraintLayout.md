@@ -4,6 +4,7 @@ date: 2019-01-24 20:04:05
 title: 使用ConstraintLayout构建响应式布局
 tags: Android
 category: tech
+description: 使用ContraintLayout能够使用平铺的布局方式（没有层级嵌套）创建大而复杂的布局。和RelativeLayout类似，ConstraintLayout所有的View都在同一层级中，但是它比RelativeLayout使用起来更加灵活，结合Android Studio的布局编辑器，使用起来也更加简单。
 ---
 
 

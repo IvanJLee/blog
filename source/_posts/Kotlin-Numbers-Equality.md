@@ -2,6 +2,7 @@
 title: Kotlin中的数字类型的相等性
 tags: Kotlin
 date: 2019-02-27 14:44:10
+description: Kotlin中有2种相等性，结构型相等和引用型相等。可以理解为结构型相等是值比较，和Java中的equals类似，引用型相等是通过比较引用指向的对象是否为同一个，和Java中的==类似。
 ---
 
 

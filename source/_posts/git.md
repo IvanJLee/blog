@@ -3,6 +3,8 @@ title: Git常用命令
 date: 2017-06-08 23:13:00
 tags: git
 category: tools
+description: Git作为一种常用的现代版本管理工具，应用的十分广泛，作为开发者，Git是一项必不可少的技能，掌握常见的Git命令能够大大提高我们的工作效率。这里只介绍最基础的，最常用的命令，配置相关的东西直接略过，git相关的一些概念也不介绍了。在执行下面的命令的时候，假定你已经安装好了git，并且在你的远程git仓库的网站上添加了你的key，建立了安全的连接。
+
 ---
 *本文出处https://zhuanlan.zhihu.com/p/25415162 或者 http://blog.csdn.net/u013301192/article/details/69568557*
 
