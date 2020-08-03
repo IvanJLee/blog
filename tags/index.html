@@ -223,7 +223,7 @@
               6 tags in total
             </div>
             <div class="tag-cloud-tags">
-              <a href="/tags/Android/" style="font-size: 12px; color: #ccc">Android</a> <a href="/tags/Kotlin/" style="font-size: 12px; color: #ccc">Kotlin</a> <a href="/tags/git/" style="font-size: 12px; color: #ccc">git</a> <a href="/tags/java/" style="font-size: 30px; color: #111">java</a> <a href="/tags/other/" style="font-size: 12px; color: #ccc">other</a> <a href="/tags/test/" style="font-size: 12px; color: #ccc">test</a>
+              <a href="/tags/Android/" style="font-size: 30px; color: #111">Android</a> <a href="/tags/Kotlin/" style="font-size: 12px; color: #ccc">Kotlin</a> <a href="/tags/git/" style="font-size: 12px; color: #ccc">git</a> <a href="/tags/java/" style="font-size: 30px; color: #111">java</a> <a href="/tags/other/" style="font-size: 12px; color: #ccc">other</a> <a href="/tags/test/" style="font-size: 12px; color: #ccc">test</a>
             </div>
           </div>
         
@@ -395,9 +395,14 @@
                 console.error('Failed to save visitor count', error);
               });
           } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
           }
         })
         .catch(error => {
@@ -424,7 +429,7 @@
         });
     }
 
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"ORwFgt6n4M1M4kImU9jeng8r-gzGzoHsz","app_key":"JaNwYN0AunMTWBdMAg3wxNiu","server_url":"https://leancloud.cn","security":true};
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"ORwFgt6n4M1M4kImU9jeng8r-gzGzoHsz","app_key":"JaNwYN0AunMTWBdMAg3wxNiu","server_url":"https://leancloud.cn","security":false};
     function fetchData(api_server) {
       var Counter = (method, url, data) => {
         return fetch(`${api_server}/1.1${url}`, {

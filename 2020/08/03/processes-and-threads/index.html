@@ -20,19 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="test">
+  <meta name="description" content="当应用组件启动且该应用未运行任何其他组件时，Android 系统会使用单个执行线程为应用启动新的 Linux 进程。默认情况下，同一应用的所有组件会在相同的进程和线程（称为“主”线程）中运行。如果某个应用组件启动且该应用已存在进程（因为存在该应用的其他组件），则该组件会在此进程内启动并使用相同的执行线程。但是，您可以安排应用中的其他组件在单独的进程中运行，并为任何进程创建额外的线程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ttt">
-<meta property="og:url" content="http://yoursite.com/2020/08/03/ttt/index.html">
+<meta property="og:title" content="进程与线程">
+<meta property="og:url" content="http://yoursite.com/2020/08/03/processes-and-threads/index.html">
 <meta property="og:site_name" content="リグンさん">
-<meta property="og:description" content="test">
+<meta property="og:description" content="当应用组件启动且该应用未运行任何其他组件时，Android 系统会使用单个执行线程为应用启动新的 Linux 进程。默认情况下，同一应用的所有组件会在相同的进程和线程（称为“主”线程）中运行。如果某个应用组件启动且该应用已存在进程（因为存在该应用的其他组件），则该组件会在此进程内启动并使用相同的执行线程。但是，您可以安排应用中的其他组件在单独的进程中运行，并为任何进程创建额外的线程。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-03T15:32:01.000Z">
-<meta property="article:modified_time" content="2020-08-03T15:34:43.640Z">
+<meta property="article:modified_time" content="2020-08-03T15:50:13.790Z">
 <meta property="article:author" content="Ivan J. Lee">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/08/03/ttt/">
+<link rel="canonical" href="http://yoursite.com/2020/08/03/processes-and-threads/">
 
 
 <script id="page-configurations">
@@ -45,7 +46,7 @@
   };
 </script>
 
-  <title>ttt | リグンさん</title>
+  <title>进程与线程 | リグンさん</title>
   
 
 
@@ -199,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/03/ttt/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/03/processes-and-threads/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/12691827?s=400&u=3f9fb8fcf809099f9c8c134d1cba909f29942864&v=4">
@@ -212,7 +213,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ttt
+          进程与线程
         </h1>
 
         <div class="post-meta">
@@ -223,17 +224,18 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-08-03 23:32:01 / Modified: 23:34:43" itemprop="dateCreated datePublished" datetime="2020-08-03T23:32:01+08:00">2020-08-03</time>
+              <time title="Created: 2020-08-03 23:32:01 / Modified: 23:50:13" itemprop="dateCreated datePublished" datetime="2020-08-03T23:32:01+08:00">2020-08-03</time>
             </span>
 
           
-            <span id="/2020/08/03/ttt/" class="post-meta-item leancloud_visitors" data-flag-title="ttt" title="Views">
+            <span id="/2020/08/03/processes-and-threads/" class="post-meta-item leancloud_visitors" data-flag-title="进程与线程" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
+            <div class="post-description">当应用组件启动且该应用未运行任何其他组件时，Android 系统会使用单个执行线程为应用启动新的 Linux 进程。默认情况下，同一应用的所有组件会在相同的进程和线程（称为“主”线程）中运行。如果某个应用组件启动且该应用已存在进程（因为存在该应用的其他组件），则该组件会在此进程内启动并使用相同的执行线程。但是，您可以安排应用中的其他组件在单独的进程中运行，并为任何进程创建额外的线程。</div>
 
         </div>
       </header>
@@ -244,7 +246,44 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1>
+        <h2 id="进程和线程概览"><a href="#进程和线程概览" class="headerlink" title="进程和线程概览"></a>进程和线程概览</h2><p>当应用组件启动且该应用未运行任何其他组件时，Android 系统会使用单个执行线程为应用启动新的 Linux 进程。默认情况下，同一应用的所有组件会在相同的进程和线程（称为“主”线程）中运行。如果某个应用组件启动且该应用已存在进程（因为存在该应用的其他组件），则该组件会在此进程内启动并使用相同的执行线程。但是，您可以安排应用中的其他组件在单独的进程中运行，并为任何进程创建额外的线程。</p>
+<p>本文档介绍进程和线程在 Android 应用中的工作方式。</p>
+<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>默认情况下，同一应用的所有组件均在相同的进程中运行，且大多数应用都不应改变这一点。但是，如果您发现需要控制某个组件所属的进程，则可在清单文件中执行此操作。</p>
+<p>各类组件元素（<activity>、<service>、<receiver> 和 <provider>）的清单文件条目均支持 android:process 属性，此属性可指定该组件应在哪个进程中运行。您可以设置此属性，使每个组件均在各自的进程中运行，或者使某些组件共享一个进程，而其他组件则不共享。您也可设置 android:process，以便不同应用的组件在同一进程中运行，但前提是这些应用共享相同的 Linux 用户 ID 并使用相同的证书进行签署。</p>
+<p>此外，<application> 元素还支持 android:process 属性，用来设置适用于所有组件的默认值。</p>
+<p>当内存不足，而其他更急于为用户提供服务的进程又需要内存时，Android 可能会决定在某一时刻关闭某个进程。正因如此，系统会销毁在被终止进程中运行的应用组件。当这些组件需再次运行时，系统将为其重启进程。</p>
+<p>决定终止哪个进程时，Android 系统会权衡其对用户的相对重要性。例如，相较于托管可见 Activity 的进程而言，系统更有可能关闭托管屏幕上不再可见的 Activity 的进程。因此，是否终止某个进程的决定取决于该进程中所运行组件的状态。</p>
+<p>如需详细了解进程生命周期及其与应用状态的关系，请参阅进程和应用生命周期。</p>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>启动应用时，系统会为该应用创建一个称为“main”（主线程）的执行线程。此线程非常重要，因为其负责将事件分派给相应的界面微件，其中包括绘图事件。此外，应用与 Android 界面工具包组件（来自 android.widget 和 android.view 软件包的组件）也几乎都在该线程中进行交互。因此，主线程有时也称为界面线程。但在一些特殊情况下，应用的主线程可能并非其界面线程，相关详情请参阅线程注解。</p>
+<p>系统不会为每个组件实例创建单独的线程。在同一进程中运行的所有组件均在界面线程中进行实例化，并且对每个组件的系统调用均由该线程进行分派。因此，响应系统回调的方法（例如，报告用户操作的 onKeyDown() 或生命周期回调方法）始终在进程的界面线程中运行。</p>
+<p>例如，当用户轻触屏幕上的按钮时，应用的界面线程会将轻触事件分派给微件，而微件转而会设置其按下状态，并将失效请求发布到事件队列中。界面线程从队列中取消该请求，并通知该微件对其自身进行重绘。</p>
+<p>当应用执行繁重的任务以响应用户交互时，除非您正确实现应用，否则这种单线程模式可能会导致性能低下。具体地讲，如果界面线程需要处理所有任务，则执行耗时较长的操作（例如，网络访问或数据库查询）将会阻塞整个界面线程。一旦被阻塞，线程将无法分派任何事件，包括绘图事件。从用户的角度来看，应用会显示为挂起状态。更糟糕的是，如果界面线程被阻塞超过几秒钟时间（目前大约是 5 秒钟），用户便会看到令人厌烦的“应用无响应”(ANR) 对话框。如果引起用户不满，他们可能就会决定退出并卸载此应用。</p>
+<p>此外，Android 界面工具包并非线程安全工具包。所以您不得通过工作线程操纵界面，而只能通过界面线程操纵界面。因此，Android 的单线程模式必须遵守两条规则：</p>
+<ol>
+<li>不要阻塞 UI 线程</li>
+<li>不要在 UI 线程之外访问 Android UI 工具包</li>
+</ol>
+<h3 id="工作线程"><a href="#工作线程" class="headerlink" title="工作线程"></a>工作线程</h3><p>根据上述单线程模式，如要保证应用界面的响应能力，关键是不能阻塞界面线程。如果执行的操作不能即时完成，则应确保它们在单独的线程（“后台”或“工作”线程）中运行。</p>
+<p>但请注意，除了界面线程或“主”线程，您无法更新任何其他线程的界面。</p>
+<p>为解决此问题，Android 提供了几种途径，以便您从其他线程访问界面线程。以下列出了几种有用的方法：</p>
+<ul>
+<li>Activity.runOnUiThread(Runnable)</li>
+<li>View.post(Runnable)</li>
+<li>View.postDelayed(Runnable, long)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="comment">// a potentially time consuming task</span></span><br><span class="line">            <span class="keyword">final</span> Bitmap bitmap =</span><br><span class="line">                    processBitMap(<span class="string">&quot;image.png&quot;</span>);</span><br><span class="line">            imageView.post(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    imageView.setImageBitmap(bitmap);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述实现属于线程安全型：在单独的线程中完成后台操作，同时始终在界面线程中操纵 ImageView。</p>
+<p>但是，随着操作日趋复杂，这类代码也会变得复杂且难以维护。如要通过工作线程处理更复杂的交互，可以考虑在工作线程中使用 Handler 处理来自界面线程的消息。当然，最好的解决方案或许是扩展 AsyncTask 类，此类可简化与界面进行交互所需执行的工作线程任务。</p>
+<h4 id="使用-AsyncTask"><a href="#使用-AsyncTask" class="headerlink" title="使用 AsyncTask"></a>使用 AsyncTask</h4><p>AsyncTask 允许对界面执行异步操作。它会先阻塞工作线程中的操作，然后在界面线程中发布结果，而无需您亲自处理线程和/或处理程序。</p>
+<p>如要使用该类，您必须创建 AsyncTask 的子类并实现 doInBackground() 回调方法，该方法会在后台线程池中运行。如要更新界面，您应实现 onPostExecute()（该方法会传递 doInBackground() 返回的结果并在界面线程中运行），以便安全更新界面。然后，您可以通过从界面线程调用 execute() 来运行任务。</p>
+<p>如要全面了解如何使用此类，请阅读 AsyncTask 参考文档。</p>
+<h3 id="线程安全方法"><a href="#线程安全方法" class="headerlink" title="线程安全方法"></a>线程安全方法</h3><p>在某些情况下，系统可能会从多个线程调用您实现的方法，因此编写这些方法时必须确保其满足线程安全的要求。</p>
+<p>这一点主要适用于可以远程调用的方法，如绑定服务中的方法。如果对 IBinder 中所实现方法的调用源自运行 IBinder 的同一进程，则系统会在调用方的线程中执行该方法。但是，如果调用源自其他进程，则系统会选择线程池中的某个线程，并在此线程中（而不是在进程的界面线程中）执行该方法，线程池由系统在与 IBinder 相同的进程中进行维护。例如，即使服务的 onBind() 方法通过服务进程的界面线程调用，在 onBind() 所返回对象中实现的方法（例如，实现 RPC 方法的子类）仍会通过线程池中的线程调用。由于服务可以有多个客户端，因此多个池线程可同时使用相同的 IBinder 方法。因此，IBinder 方法必须实现为线程安全方法。</p>
+<p>同样，内容提供程序也可接收来自其他进程的数据请求。尽管 ContentResolver 和 ContentProvider 类隐藏了如何管理进程间通信的细节，但系统会从内容提供程序进程的线程池（而非进程的界面线程）调用响应这些请求的 ContentProvider 方法（query()、insert()、delete()、update() 和 getType() 方法）。由于系统可能会同时从任意数量的线程调用这些方法，因此它们也必须实现为线程安全的方法。</p>
+<h2 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h2><p>Android 利用远程过程调用 (RPC) 提供了一种进程间通信 (IPC) 机制，在此机制中，系统会（在其他进程中）远程执行由 Activity 或其他应用组件调用的方法，并将所有结果返回给调用方。因此，您需将方法调用及其数据分解至操作系统可识别的程度，并将其从本地进程和地址空间传输至远程进程和地址空间，然后在远程进程中重新组装并执行该调用。然后，返回值将沿相反方向传输回来。Android 提供执行这些 IPC 事务所需的全部代码，因此您只需集中精力定义和实现 RPC 编程接口。</p>
+<p>如要执行 IPC，您必须使用 bindService() 将应用绑定到服务。如需了解详细信息，请参阅Service开发者指南。</p>
+
     </div>
 
     
@@ -252,6 +291,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Android/" rel="tag"># Android</a>
+          </div>
 
         
 
@@ -321,7 +363,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#test"><span class="nav-number">1.</span> <span class="nav-text">test</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E6%A6%82%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">进程和线程概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E7%BA%BF%E7%A8%8B"><span class="nav-number">3.1.</span> <span class="nav-text">工作线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-AsyncTask"><span class="nav-number">3.1.1.</span> <span class="nav-text">使用 AsyncTask</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">线程安全方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="nav-number">4.</span> <span class="nav-text">进程间通信</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -430,9 +472,14 @@
                 console.error('Failed to save visitor count', error);
               });
           } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
           }
         })
         .catch(error => {
@@ -459,7 +506,7 @@
         });
     }
 
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"ORwFgt6n4M1M4kImU9jeng8r-gzGzoHsz","app_key":"JaNwYN0AunMTWBdMAg3wxNiu","server_url":"https://leancloud.cn","security":true};
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"ORwFgt6n4M1M4kImU9jeng8r-gzGzoHsz","app_key":"JaNwYN0AunMTWBdMAg3wxNiu","server_url":"https://leancloud.cn","security":false};
     function fetchData(api_server) {
       var Counter = (method, url, data) => {
         return fetch(`${api_server}/1.1${url}`, {

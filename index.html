@@ -196,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/03/ttt/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/03/processes-and-threads/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/12691827?s=400&u=3f9fb8fcf809099f9c8c134d1cba909f29942864&v=4">
@@ -210,7 +210,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/08/03/ttt/" class="post-title-link" itemprop="url">ttt</a>
+            <a href="/2020/08/03/processes-and-threads/" class="post-title-link" itemprop="url">进程与线程</a>
         </h2>
 
         <div class="post-meta">
@@ -221,11 +221,11 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-08-03 23:32:01 / Modified: 23:34:43" itemprop="dateCreated datePublished" datetime="2020-08-03T23:32:01+08:00">2020-08-03</time>
+              <time title="Created: 2020-08-03 23:32:01 / Modified: 23:50:13" itemprop="dateCreated datePublished" datetime="2020-08-03T23:32:01+08:00">2020-08-03</time>
             </span>
 
           
-            <span id="/2020/08/03/ttt/" class="post-meta-item leancloud_visitors" data-flag-title="ttt" title="Views">
+            <span id="/2020/08/03/processes-and-threads/" class="post-meta-item leancloud_visitors" data-flag-title="进程与线程" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -242,7 +242,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1>
+          <p>当应用组件启动且该应用未运行任何其他组件时，Android 系统会使用单个执行线程为应用启动新的 Linux 进程。默认情况下，同一应用的所有组件会在相同的进程和线程（称为“主”线程）中运行。如果某个应用组件启动且该应用已存在进程（因为存在该应用的其他组件），则该组件会在此进程内启动并使用相同的执行线程。但是，您可以安排应用中的其他组件在单独的进程中运行，并为任何进程创建额外的线程。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/03/processes-and-threads/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -922,9 +930,14 @@
                 console.error('Failed to save visitor count', error);
               });
           } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
           }
         })
         .catch(error => {
@@ -951,7 +964,7 @@
         });
     }
 
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"ORwFgt6n4M1M4kImU9jeng8r-gzGzoHsz","app_key":"JaNwYN0AunMTWBdMAg3wxNiu","server_url":"https://leancloud.cn","security":true};
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"ORwFgt6n4M1M4kImU9jeng8r-gzGzoHsz","app_key":"JaNwYN0AunMTWBdMAg3wxNiu","server_url":"https://leancloud.cn","security":false};
     function fetchData(api_server) {
       var Counter = (method, url, data) => {
         return fetch(`${api_server}/1.1${url}`, {
